@@ -24,7 +24,6 @@ function StepsHeader(){
             
         </header>
     )
->
 }
 
 export default StepsHeader ;
