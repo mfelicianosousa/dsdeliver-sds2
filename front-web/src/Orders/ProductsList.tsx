@@ -12,7 +12,7 @@ type Props = {
 function ProductsList({ products, selectedProducts, onSelectProduct }:Props){
     return(
         <div className = "orders-list-container">
-            <div className = "orders-list-content">
+            <div className = "orders-list-items">
                 { products.map( product => (
                     <ProductCard 
                        key = { product.id} 

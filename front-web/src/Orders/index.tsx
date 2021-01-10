@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css' ;
 import StepsHeader from './StepsHeader';
 import ProductsList from './ProductsList';
 import { Product, OrderLocationData } from './types';
@@ -13,7 +14,7 @@ import './styles.css' ;
 
 
 function Orders(){
-    const [products, setProducts] =  useState<Product[]>([]) ;
+    const [products, setProducts] =  useState< Product[]>([]) ;
     const [selectedProducts, setSelectedProducts] =  useState<Product[]>([]) ;
     const [orderLocation, setOrderLocation] = useState<OrderLocationData>();
     const totalPrice = selectedProducts.reduce( ( sum, item ) => {
@@ -50,14 +51,14 @@ function Orders(){
           products: productsIds
         }
       
-        saveOrder( payload )
+        saveOrder(payload)
           .then((response) => {
-          toast.error(`Pedido enviado com sucesso! No ${ response.data.id }`);
-          setSelectedProducts([]);
-        })
-        .catch(() => {
-          toast.warning('Erro ao enviar pedido');
-        })
+            toast.error(`Pedido enviado com sucesso! Nยบ ${response.data.id}`);
+            setSelectedProducts([]);
+          })
+          .catch(() => {
+            toast.warning('Erro ao enviar pedido');
+          })
       }
 
     return(
@@ -72,7 +73,7 @@ function Orders(){
                 <OrderLocation onChangeLocation ={ location => setOrderLocation( location ) }/>
                 <OrderSummary amount={ selectedProducts.length }
                           totalPrice={ totalPrice } 
-                          onSubmit={ handleSubmit }
+                          onSubmit={handleSubmit }
                 />
             </div>
             <Footer />
